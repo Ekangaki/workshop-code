@@ -33,81 +33,44 @@ Follow this concise, battle‑tested guide to serve the contents of **[`Ekangaki
 ssh -i /path/to/key.pem ec2-user@<PUBLIC_IP>
 
 
-3  Update OS & Install Packages
+## 3 Update OS & Install Packages
 # Update package index and apply patches
+```bash
 sudo yum update -y
 
 # Install Apache HTTPD and Git
+```bash
 sudo yum install -y httpd git
 
 # Install Apache HTTPD and Git
+```bash
 sudo yum install -y httpd git
 
 ## 4  Start & Enable Apache
+```bash
 sudo systemctl start httpd
 sudo systemctl enable httpd   # auto‑start on reboot
 
 ## 5  Clone & Deploy the Code
 # Clean the default docroot
+```bash
 sudo rm -f /var/www/html/*
 
 # Clone repo to /tmp
+```bash
 cd /tmp
 git clone https://github.com/Ekangaki/workshop-code.git
 
 # Copy site content into Apache docroot
+```bash
 sudo cp -r workshop-code/* /var/www/html/
 
 ## 6  Set Correct Permissions (Optional)
+```bash
 sudo chown -R ec2-user:ec2-user /var/www/html
 sudo find /var/www/html -type d -exec chmod 755 {} \;
 sudo find /var/www/html -type f -exec chmod 644 {} \;
 
 ## 7  Verify in Browser
-Open http://<PUBLIC_IP>/ — you should now see your workshop‑code site live!
-
-
-
-
-
-3  Update OS & Install Packages
-bash
-Copy
-Edit
-# Update package index and apply patches
-sudo yum update -y
-
-# Install Apache HTTPD and Git
-sudo yum install -y httpd git
-4  Start & Enable Apache
-bash
-Copy
-Edit
-sudo systemctl start httpd
-sudo systemctl enable httpd   # auto‑start on reboot
-Test: Browse to http://<PUBLIC_IP>/ — you should see the Apache test page.
-
-5  Clone & Deploy the Code
-bash
-Copy
-Edit
-# Clean the default docroot
-sudo rm -f /var/www/html/*
-
-# Clone repo to /tmp
-cd /tmp
-git clone https://github.com/Ekangaki/workshop-code.git
-
-# Copy site content into Apache docroot
-sudo cp -r workshop-code/* /var/www/html/
-(Adjust the copy path if the site lives in a subfolder like public/.)
-
-6  Set Correct Permissions
-bash
-Copy
-Edit
-sudo chown -R ec2-user:ec2-user /var/www/html
-sudo find /var/www/html -type d -exec chmod 755 {} \;
-sudo find /var/www/html -type f -exec chmod 644 {} \;
-7  Verify in Browser
+```bash
 Open http://<PUBLIC_IP>/ — you should now see your workshop‑code site live!
