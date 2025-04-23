@@ -33,9 +33,15 @@ Follow this concise, battle‑tested guide to serve the contents of **[`Ekangaki
 ssh -i /path/to/key.pem ec2-user@<PUBLIC_IP>
 
 
-## 3  Update OS & Install Packages
+3  Update OS & Install Packages
+bash
+Copy
+Edit
 # Update package index and apply patches
 sudo yum update -y
+
+# Install Apache HTTPD and Git
+sudo yum install -y httpd git
 
 # Install Apache HTTPD and Git
 sudo yum install -y httpd git
