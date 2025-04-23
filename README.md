@@ -34,9 +34,6 @@ ssh -i /path/to/key.pem ec2-user@<PUBLIC_IP>
 
 
 3  Update OS & Install Packages
-bash
-Copy
-Edit
 # Update package index and apply patches
 sudo yum update -y
 
